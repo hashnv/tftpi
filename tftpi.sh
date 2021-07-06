@@ -4,9 +4,11 @@ set -ex
 
 start() {
   # Update package repositories
-  sudo apt update
+  sudo apt-get update
+  # Install USB mount service
+  sudo apt-get install usbmount
   # Install tftp server daemon
-  sudo apt install tftpd-hpa
+  sudo apt-get install tftpd-hpa
   # Overwrite existing tftp configuration
   sudo echo '# /etc/default/tftpd-hpa
 TFTP_USERNAME="tftp"
