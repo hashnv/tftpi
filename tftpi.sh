@@ -13,7 +13,7 @@ start() {
   sudo mkdir -p /etc/systemd/system/systemd-udevd.service.d/
   sudo echo '[Service]
 MountFlags=shared
-PrivateMounts=yes' > /etc/systemd/system/systemd-udevd.service.d/shared-mount-ns.conf
+PrivateMounts=no' > /etc/systemd/system/systemd-udevd.service.d/shared-mount-ns.conf
   # Reload systemctl daemon and restart udev
   sudo systemctl daemon-reload
   sudo systemctl restart systemd-udevd.service
