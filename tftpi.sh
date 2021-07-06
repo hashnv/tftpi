@@ -12,7 +12,8 @@ start() {
   # Add required usbmount configuration
   sudo mkdir -p /etc/systemd/system/systemd-udevd.service.d/
   sudo echo '[Service]
-MountFlags=shared' > /etc/systemd/system/systemd-udevd.service.d/shared-mount-ns.conf
+MountFlags=shared
+PrivateMounts=yes' > /etc/systemd/system/systemd-udevd.service.d/shared-mount-ns.conf
   # Reload systemctl daemon and restart udev
   sudo systemctl daemon-reload
   sudo systemctl restart systemd-udevd.service
