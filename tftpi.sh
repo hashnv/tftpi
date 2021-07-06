@@ -18,13 +18,10 @@ MountFlags=shared' > /etc/systemd/system/systemd-udevd.service.d/shared-mount-ns
   sudo systemctl restart systemd-udevd.service
   # Overwrite existing tftp configuration
   sudo echo '# /etc/default/tftpd-hpa
-TFTP_USERNAME="tftp"
-TFTP_DIRECTORY="/tftp"
+TFTP_USERNAME="root"
+TFTP_DIRECTORY="/media"
 TFTP_ADDRESS="0.0.0.0:69"
 TFTP_OPTIONS="--secure --create"' > /etc/default/tftpd-hpa
-  # Make /tftp directory and set permissions
-  sudo mkdir /tftp
-  sudo chown tftp. /tftp
   # Restart tftpd-hpa and enable on startup
   sudo systemctl restart tftpd-hpa
   sudo systemctl enable tftpd-hpa
